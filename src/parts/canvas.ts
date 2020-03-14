@@ -2,11 +2,32 @@
 
 export class Canvas implements DOMCanvas.Canvas {
     rootElement: HTMLDivElement;
+    pressedKeys: { [key: string]: boolean };
 
     constructor(rootElement: HTMLDivElement) {
         this.rootElement = rootElement;
         
         // Add CSS Identifier:
         this.rootElement.setAttribute("data-dom-canvas", "canvas");
+
+        // Add key press handlers:
+        this.on("keydown", ({ code }: KeyboardEvent) => (this.pressedKeys[code] = true));
+        this.on("keyup", ({ code }: KeyboardEvent) => (this.pressedKeys[code] = false));
+    }
+
+    add(element: DOMCanvas.Element) {
+        this.rootElement.appendChild(element.rootElement);
+    }
+
+    remove(element: DOMCanvas.Element) {
+        this.rootElement.removeChild(element.rootElement);
+    }
+
+    on(eventName: string, handler: Function) {
+        this.rootElement.addEventListener(eventName, handler.bind(this));
+    }
+
+    isPressed(key: string) {
+        return this.pressedKeys[key];
     }
 }
