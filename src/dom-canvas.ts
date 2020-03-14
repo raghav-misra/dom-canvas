@@ -2,6 +2,10 @@
 
 import { Canvas } from './parts/canvas.js';
 import * as ElementTypes from './parts/element.js';
+import { applyStyles } from './parts/apply-styles.js';
+
+// Apply DOMCanvas styles:  
+applyStyles();
 
 function createElement(elementType: typeof DOMCanvas.Element, props: DOMCanvas.IElementProps) {
     return new elementType(props);

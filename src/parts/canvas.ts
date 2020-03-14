@@ -5,5 +5,8 @@ export class Canvas implements DOMCanvas.Canvas {
 
     constructor(rootElement: HTMLDivElement) {
         this.rootElement = rootElement;
+        
+        // Add CSS Identifier:
+        this.rootElement.setAttribute("data-dom-canvas", "canvas");
     }
 }

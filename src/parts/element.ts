@@ -7,7 +7,9 @@ export class Element implements DOMCanvas.Element {
 
     constructor(props: DOMCanvas.IElementProps) {
         this.rootElement = document.createElement("div");
-        this.rootElement.classList.add("dom-canvas element");
+
+        // Set CSS Identifier:
+        this.rootElement.setAttribute("data-dom-canvas", "element");
 
         const { x, y, width, height } = props;
         this.x = x; this.y = y;
