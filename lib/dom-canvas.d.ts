@@ -14,8 +14,6 @@ declare module DOMCanvas {
     }
 
     /* Element Types */
-    type ElementConstructor = (props: IElementProps) => Element;
-
     export class Element {
         constructor(props: IElementProps);
 
