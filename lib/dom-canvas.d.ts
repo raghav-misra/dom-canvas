@@ -5,36 +5,42 @@ declare module DOMCanvas {
         rootElement: HTMLDivElement;
     }
 
-    /* Element Props */
-    export interface IElementProps {
-        [key: string]: any;
-
-        x: number; y: number;
-        width: number; height: number;
-    }
-
     /* Element Types */
-    export class Element {
+    export class Element implements IElementProps {
         constructor(props: IElementProps);
 
         rootElement: HTMLDivElement;
         x: number; y: number;
-        width: number; height: number;
     }
 
-    export class Text extends Element {
-        innerText: string;
+    export interface IElementProps {
+        [key: string]: any;
+        x: number; y: number;
     }
 
-    export class Rect extends Element {
+    export class Text extends Element implements ITextProps {
+        constructor(props: ITextProps);
+        text: string;
+        font: string;
+    }
+
+    export interface ITextProps extends IElementProps {
+        text: string;
+        font: string;
+    }
+
+    export class Rect extends Element implements IShapeProps {
         background: string;
-        strokeWidth: number;
-        strokeColor: string;
+        stroke: string;
     }
 
     export class Ellipse extends Rect {
-        borderRadius: number;
-        borderRadiusUnit: "px" | "%";
+
+    }
+
+    export interface IShapeProps extends IElementProps {
+        background: string;
+        stroke: string;
     }
 
     /* DefaultExport */

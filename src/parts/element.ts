@@ -11,9 +11,8 @@ export class Element implements DOMCanvas.Element {
         // Set CSS Identifier:
         this.rootElement.setAttribute("data-dom-canvas", "element");
 
-        const { x, y, width, height } = props;
-        this.x = x; this.y = y;
-        this.width = width; this.height = height;
+        // Set position:
+        this.x = props.x; this.y = props.y;
     }
 }
 
