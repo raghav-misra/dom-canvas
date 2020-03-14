@@ -2,7 +2,7 @@
   "name": "dom-canvas",
   "version": "0.0.1",
   "description": "Leveraging the power of CSS animations and the Document Object Model to create a faster, more powerful canvas.",
-  "main": "N/A",
+  "types": "./lib/dom-canvas.d.ts",
   "scripts": {
     "build": "tsc"
   },
