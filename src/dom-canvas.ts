@@ -7,6 +7,12 @@ import { applyStyles } from './parts/apply-styles.js';
 // Apply DOMCanvas styles:  
 applyStyles();
 
+/**
+ * Function to create instances of DOMCanvas.Element (or classes that extend it).
+ * Useful mainly with JSX, otherwise just use the 'new' keyword.
+ * @param { typeof DOMCanvas.Element } elementType 
+ * @param { DOMCanvas.IElementProps } props 
+ */
 function createElement(elementType: typeof DOMCanvas.Element, props: DOMCanvas.IElementProps) {
     return new elementType(props);
 }
