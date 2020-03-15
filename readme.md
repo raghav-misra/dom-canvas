@@ -1,6 +1,6 @@
 # dom-canvas:
 
-Leveraging the power of CSS animations and the Document Object Model to create a faster, more powerful canvas.
+Leveraging the power of CSS and the DOM to create a faster, more powerful canvas.
 
 ## What is this?
 
