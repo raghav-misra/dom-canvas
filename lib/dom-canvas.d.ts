@@ -11,7 +11,7 @@ declare module DOMCanvas {
         isPressed(key: string): boolean;
     }
 
-    /* Element Types */
+    /* Element */
     export class Element implements IElementProps {
         constructor(props: IElementProps);
         on(eventName: string, handler: Function): void;
@@ -33,9 +33,18 @@ declare module DOMCanvas {
         text?: string; font?: string; textColor?: string;
     }
 
+    export class Image extends Element implements DOMCanvas.IImageProps {
+        image: string;
+    }
+
+    export interface IImageProps extends IElementProps {
+        image: string;
+    }
+
     /* DefaultExport */
     export interface IDefaultExport {
         Element: typeof Element;
+        Image: typeof Image;
         Canvas: typeof Canvas;
     }
 }

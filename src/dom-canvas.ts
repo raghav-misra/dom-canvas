@@ -6,7 +6,8 @@ import './parts/apply-styles.js';
 
 const DOMCanvasExport: DOMCanvas.IDefaultExport = {
     Element: ElementTypes.Element,
-    Canvas: Canvas
+    Image: ElementTypes.Image,
+    Canvas: Canvas,
 };
 
 export default DOMCanvasExport;

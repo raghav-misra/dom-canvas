@@ -74,3 +74,26 @@ export class Element implements DOMCanvas.Element {
         this.rootElement.addEventListener(eventName, handler.bind(this));
     }
 }
+
+export class Image extends Element implements DOMCanvas.Image {
+    $image: string;
+
+    constructor(props: DOMCanvas.IImageProps) {
+        // Call super:
+        super(props);
+
+        if (!props.width && !props.height) {
+            const image = new window.Image();
+            image.onload = (() => { this.width = image.width; this.height = image.height; }).bind(this);
+            image.src = props.image;
+            this.image = props.image;
+        }
+
+        this.rootElement.style.backgroundSize = "100% 100%";
+        this.rootElement.style.backgroundPosition = "left";
+        this.rootElement.style.backgroundRepeat = "no-repeat";
+    }
+
+    get image() { return this.$image; }
+    set image(newImage) { this.$image = newImage; this.rootElement.style.background = `url(${newImage})`; }
+}
