@@ -17,6 +17,7 @@ export class Canvas implements DOMCanvas.Canvas {
         // Add key press handlers:
         this.on("keydown", ({ code }: KeyboardEvent) => (this.pressedKeys[code] = true));
         this.on("keyup", ({ code }: KeyboardEvent) => (this.pressedKeys[code] = false));
+        this.on("blur", () => (this.pressedKeys = Object.create(null)));
     }
 
     add(element: DOMCanvas.Element) {

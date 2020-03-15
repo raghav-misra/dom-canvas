@@ -10,7 +10,6 @@ const style = `
 
     [data-dom-canvas=element] {
         position: absolute;
-        pointer-events: none;
     }
 `;
 
