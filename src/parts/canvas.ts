@@ -4,8 +4,9 @@ export class Canvas implements DOMCanvas.Canvas {
     rootElement: HTMLDivElement;
     pressedKeys: { [key: string]: boolean } = Object.create(null);
 
-    constructor(rootElement: HTMLDivElement) {
-        this.rootElement = rootElement;
+    constructor(rootElement: HTMLDivElement | string) {
+        if (typeof rootElement === "string") this.rootElement = document.querySelector(rootElement);
+        else this.rootElement = rootElement;
         
         // Add CSS Identifier:
         this.rootElement.setAttribute("data-dom-canvas", "canvas");

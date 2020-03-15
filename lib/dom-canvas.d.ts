@@ -1,7 +1,7 @@
 declare module DOMCanvas {
     /* Canvas */
     export class Canvas {
-        constructor(rootElement: HTMLDivElement);
+        constructor(rootElement: HTMLDivElement | string);
 
         add(element: Element): void;
         remove(element: Element): void;
