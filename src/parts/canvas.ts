@@ -2,7 +2,7 @@
 
 export class Canvas implements DOMCanvas.Canvas {
     rootElement: HTMLDivElement;
-    pressedKeys: { [key: string]: boolean };
+    pressedKeys: { [key: string]: boolean } = Object.create(null);
 
     constructor(rootElement: HTMLDivElement) {
         this.rootElement = rootElement;
@@ -30,4 +30,7 @@ export class Canvas implements DOMCanvas.Canvas {
     isPressed(key: string) {
         return this.pressedKeys[key];
     }
+
+    get width() { return this.rootElement.clientWidth; }
+    get height() { return this.rootElement.clientHeight; }
 }
