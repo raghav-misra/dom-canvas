@@ -24,6 +24,9 @@ export class Element implements DOMCanvas.Element {
         // Font/text:
         props.font && (this.font = props.font);
         props.text && (this.text = props.text);
+
+        // Ellipse:
+        props.ellipse && (this.ellipse = props.ellipse);
     }
 
     // X & Y Position:
