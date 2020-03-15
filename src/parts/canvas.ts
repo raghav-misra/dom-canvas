@@ -11,6 +11,9 @@ export class Canvas implements DOMCanvas.Canvas {
         // Add CSS Identifier:
         this.rootElement.setAttribute("data-dom-canvas", "canvas");
 
+        // Focusable:
+        this.rootElement.setAttribute("tabindex", "-1");
+
         // Add key press handlers:
         this.on("keydown", ({ code }: KeyboardEvent) => (this.pressedKeys[code] = true));
         this.on("keyup", ({ code }: KeyboardEvent) => (this.pressedKeys[code] = false));
